@@ -32,4 +32,15 @@ rollBtn.addEventListener('click', () => {
   }
 
   player1Turn = !player1Turn
+
+  if (player1Score >= 20) {
+    message.textContent = 'Player 1 has won!'
+    rollBtn.style.display = 'none'
+    resetBtn.style.display = 'unset'
+  }
+  if (player2Score >= 20) {
+    message.textContent = 'Player 2 has won!'
+    rollBtn.style.display = 'none'
+    resetBtn.style.display = 'unset'
+  }
 })
