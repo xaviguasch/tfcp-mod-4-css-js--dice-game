@@ -11,3 +11,9 @@ const player2Scoreboard = document.getElementById('player2Scoreboard')
 const message = document.getElementById('message')
 const rollBtn = document.getElementById('rollBtn')
 const resetBtn = document.getElementById('resetBtn')
+
+rollBtn.addEventListener('click', () => {
+  const randomNumber = Math.floor(Math.random() * 7) + 1
+
+  player1Dice.innerText = randomNumber
+})
