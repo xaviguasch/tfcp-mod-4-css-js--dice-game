@@ -16,9 +16,15 @@ rollBtn.addEventListener('click', () => {
   const randomNumber = Math.floor(Math.random() * 7) + 1
 
   if (player1Turn) {
-    console.log(`Player 1 rolled ${randomNumber}`)
+    player1Dice.textContent = randomNumber
+    player1Dice.classList.remove('active')
+    player2Dice.classList.add('active')
+    message.textContent = 'Player 2 Turn'
   } else {
-    console.log(`Player 2 rolled ${randomNumber}`)
+    player2Dice.textContent = randomNumber
+    player2Dice.classList.remove('active')
+    player1Dice.classList.add('active')
+    message.textContent = 'Player 1 Turn'
   }
 
   player1Turn = !player1Turn
