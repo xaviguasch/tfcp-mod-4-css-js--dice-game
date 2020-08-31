@@ -15,5 +15,11 @@ const resetBtn = document.getElementById('resetBtn')
 rollBtn.addEventListener('click', () => {
   const randomNumber = Math.floor(Math.random() * 7) + 1
 
-  player1Dice.innerText = randomNumber
+  if (player1Turn) {
+    console.log(`Player 1 rolled ${randomNumber}`)
+  } else {
+    console.log(`Player 2 rolled ${randomNumber}`)
+  }
+
+  player1Turn = !player1Turn
 })
