@@ -12,7 +12,13 @@ const message = document.getElementById('message')
 const rollBtn = document.getElementById('rollBtn')
 const resetBtn = document.getElementById('resetBtn')
 
-rollBtn.addEventListener('click', () => {
+function showDisplayButton() {
+  rollBtn.style.display = 'none'
+  resetBtn.style.display = 'block'
+}
+
+/* Hook up a click event listener to the Roll Dice Button. */
+rollBtn.addEventListener('click', function () {
   const randomNumber = Math.floor(Math.random() * 6) + 1
 
   if (player1Turn) {
@@ -31,16 +37,13 @@ rollBtn.addEventListener('click', () => {
     message.textContent = 'Player 1 Turn'
   }
 
-  player1Turn = !player1Turn
-
   if (player1Score >= 20) {
-    message.textContent = 'Player 1 has won!'
-    rollBtn.style.display = 'none'
-    resetBtn.style.display = 'unset'
+    message.textContent = 'Player 1 has won! 🥳'
+    showDisplayButton()
+  } else if (player2Score >= 20) {
+    message.textContent = 'Player 2 has won! 🎉'
+    showDisplayButton()
   }
-  if (player2Score >= 20) {
-    message.textContent = 'Player 2 has won!'
-    rollBtn.style.display = 'none'
-    resetBtn.style.display = 'unset'
-  }
+
+  player1Turn = !player1Turn
 })
